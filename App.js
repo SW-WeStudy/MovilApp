@@ -12,12 +12,19 @@ function HomeScreen({navigation}) {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Home Screen</Text>
       <Button
+        title="Check Forum"
+        onPress={() => navigation.navigate('Forums')}
+      />
+      <Button
         title="Go to Details"
         onPress={() => navigation.navigate('Details')}
       />
     </View>
   );
 }
+
+import forum from "./views/forum/forum";
+
 function DetailsScreen() {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -32,6 +39,7 @@ export default function App() {
       <Drawer.Navigator initialRouteName="Home">
         <Drawer.Screen name="Home" component={HomeScreen} title={"Home"}/>
         <Drawer.Screen name="Details" component={DetailsScreen} title={"Details"} />
+        <Drawer.Screen name="Forums" component={forum} title={"Forums"} />
         {/* ... put here other screens  */}
       </Drawer.Navigator>
     </NavigationContainer>
