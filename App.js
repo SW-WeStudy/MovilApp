@@ -16,14 +16,20 @@ function HomeScreen({navigation}) {
         onPress={() => navigation.navigate('Forums')}
       />
       <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
+        title="Login"
+        onPress={() => navigation.navigate('Login')}
+      />
+      <Button
+        title="Signup"
+        onPress={() => navigation.navigate('Signup')}
       />
     </View>
   );
 }
 
-import forum from "./views/forum/forum";
+// import forum from "./views/forum/forum";
+import Login from './views/login';
+import Signup from './views/signup';
 
 function DetailsScreen() {
   return (
@@ -37,9 +43,12 @@ export default function App() {
   return (
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Login" component={Login} title={"Login"} />
+        <Drawer.Screen name="Signup" component={Signup} title={"Signup"} />
         <Drawer.Screen name="Home" component={HomeScreen} title={"Home"}/>
         <Drawer.Screen name="Details" component={DetailsScreen} title={"Details"} />
-        <Drawer.Screen name="Forums" component={forum} title={"Forums"} />
+        {/* <Drawer.Screen name="Forums" component={forum} title={"Forums"} /> */}
+        
         {/* ... put here other screens  */}
       </Drawer.Navigator>
     </NavigationContainer>

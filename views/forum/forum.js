@@ -205,7 +205,7 @@ const styles = StyleSheet.create({
     borderColor: "#bab7c3",
     borderRadius: 30,
     paddingHorizontal: 16,
-    color: "5144e5a",
+    color: "#54e5a",
     fontWeight: "600"
   }
 });
