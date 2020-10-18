@@ -28,8 +28,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         borderBottomColor: '#5E90F2',
         borderBottomWidth: 4,
-        borderBottomStartRadius: 20,
-        borderBottomEndRadius: 20
+       
     },
     date: {
         color: '#5E90F2',

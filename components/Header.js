@@ -7,7 +7,7 @@ function Header ({title}) {
             <Text style={styles.text}>{title}</Text>
         </View>
     )
-};
+}
 
 Header.defaultProps = {
     title: 'We Study',
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     header: {
         height: 60,
         padding: 15,
-        backgroundColor: 'darkslateblue'
+        backgroundColor: '#5E90F2'
     },
     text: {
         color: '#fff',
