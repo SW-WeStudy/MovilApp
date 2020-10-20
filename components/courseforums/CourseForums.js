@@ -1,36 +1,36 @@
-import { Icon, List, ListItem, Left, Body,Button} from "native-base";
+import { Icon, List, ListItem, Left, Body, Button } from "native-base";
 import React from "react";
 import { View, Text } from "react-native";
-import { getNotes } from "../helper";
+import { getForums } from "../helper";
 import { useEffect, useState } from "react";
 
-export default function CourseNotes(props) {
-  const [notes, setnotes] = useState([]);
+export default function CourseForums(props) {
+  const [forums, setforums] = useState([]);
   useEffect(() => {
     let getdata = async () => {
-      let datas = await getNotes(props.id);
+      let datas = await getForums(props.id);
       const co = [];
       datas.forEach((c, i) => {
         co.push(
           <ListItem key={"note-" + i} icon>
             <Left>
               <Button style={{ backgroundColor: "#5E90F2" }}>
-                <Icon name="sticky-note" type="FontAwesome" />
+                <Icon name="comment" type="FontAwesome" />
               </Button>
             </Left>
             <Body>
-              <Text>{c.content}</Text>
+              <Text>{c.name}</Text>
             </Body>
           </ListItem>
         );
       });
-      setnotes(co);
+      setforums(co);
     };
     getdata();
   }, []);
   return (
     <View>
-      <List>{notes}</List>
+      <List>{forums}</List>
     </View>
   );
 }

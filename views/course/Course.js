@@ -3,7 +3,7 @@ import { View, Text, SafeAreaView,StyleSheet } from "react-native";
 import { Container, Header, Content, Accordion,Icon} from "native-base";
 // components
 import CourseNotes from '../../components/coursenotes/coursenotes';
-
+import CurseForums from '../../components/courseforums/CourseForums'
 
 
 export default function Course({ route, navigation }) {
@@ -27,14 +27,13 @@ export default function Course({ route, navigation }) {
   }
   const dataArray = [
     { title: "Notes", content: <CourseNotes id={route.params.course_id}/> },
-    { title: "Forums", content: "Lorem ipsum dolor sit amet" },
+    { title: "Forums", content: <CurseForums id={route.params.course_id}/>  },
     { title: "Study rooms", content: "Lorem ipsum dolor sit amet" },
     { title: "Notes", content: "Lorem ipsum dolor sit amet" },
   ];
   return (
           <Accordion 
             dataArray={dataArray} 
-            expanded={0} 
             renderHeader={_renderHeader}
           />
   );
