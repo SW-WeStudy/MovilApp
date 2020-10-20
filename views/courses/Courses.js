@@ -21,7 +21,7 @@ import CourseCard from "../../components/coursecard/CourseCard";
 import { getCourses } from "../../components/helper";
 // import data from '../../data/data.json'
 
-export default function Course() {
+export default function Course({route,navigation}) {
   const [data, setData] = useState([]);
   const [courses, setCourses] = useState([]);
   // Similar to componentDidMount and componentDidUpdate:
@@ -30,20 +30,17 @@ export default function Course() {
     let getdata = async () => {
       let datas = await getCourses();
       setData(datas);
-      // setData(datas)
       const co = [];
       datas.forEach((c, i) => {
-        co.push(<CourseCard data={c} key={"course - " + i} />);
+        co.push(<CourseCard data={c} navigation={navigation} key={"course - " + i} />);
       });
       setCourses(co);
     };
     getdata();
   }, []);
-
-  //   console.log(courses);
   return (
-    
-      <Content>{courses}</Content>
-    
+      <Content>
+        {courses}
+      </Content>
   );
 }

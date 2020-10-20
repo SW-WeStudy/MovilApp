@@ -1,6 +1,5 @@
 import axios from "axios";
 // IP's
-const FORUM_IP = "http://52.200.134.90:3000"
 const GraphQL_URL = "http://3.138.86.155/graphql"
 
 export const getCourses = () => {
