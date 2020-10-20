@@ -19,7 +19,7 @@ export default function CourseForums(props) {
               </Button>
             </Left>
             <Body>
-              <Text>{c.name}</Text>
+              <Text style={{flexWrap:'wrap'}}>{c.name}</Text>
             </Body>
           </ListItem>
         );
@@ -30,7 +30,15 @@ export default function CourseForums(props) {
   }, []);
   return (
     <View>
-      <List>{forums}</List>
+        <List>
+        {forums.length > 0 ? (
+          forums
+        ) : (
+          <ListItem key={"note-default"} icon>
+            <Text>No hay foros disponibles</Text>
+          </ListItem>
+        )}
+      </List>
     </View>
   );
 }

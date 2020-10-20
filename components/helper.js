@@ -97,8 +97,10 @@ export const getStudyRooms = () =>{
     axios
       .post(GraphQL_URL, {
         query:`
-        get_study_rooms{
-          name
+        query{
+          get_study_rooms{
+            name
+          }
         }
         `,
         variables: {}

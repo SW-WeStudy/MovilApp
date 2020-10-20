@@ -1,4 +1,4 @@
-import { Icon, List, ListItem, Left, Body,Button} from "native-base";
+import { Icon, List, ListItem, Left, Body, Button } from "native-base";
 import React from "react";
 import { View, Text } from "react-native";
 import { getNotes } from "../helper";
@@ -30,7 +30,15 @@ export default function CourseNotes(props) {
   }, []);
   return (
     <View>
-      <List>{notes}</List>
+      <List>
+        {notes.length > 0 ? (
+          notes
+        ) : (
+          <ListItem key={"note-default"} icon>
+            <Text>No hay notas disponibles</Text>
+          </ListItem>
+        )}
+      </List>
     </View>
   );
 }
