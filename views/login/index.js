@@ -9,7 +9,6 @@ const Login = ({ navigation,handle}) => {
   const loginHandler = () => {
     alert("login success")
     handle(credentials);
-
   }
 
   const goToSignup = () => {
