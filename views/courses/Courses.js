@@ -21,7 +21,7 @@ import CourseCard from "../../components/coursecard/CourseCard";
 import { getCourses } from "../../components/helper";
 // import data from '../../data/data.json'
 
-export default function Course({route,navigation}) {
+export default function Courses({route,navigation}) {
   const [data, setData] = useState([]);
   const [courses, setCourses] = useState([]);
   // Similar to componentDidMount and componentDidUpdate:

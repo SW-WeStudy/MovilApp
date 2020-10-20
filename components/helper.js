@@ -32,3 +32,33 @@ export const getCourses = () => {
     });
     return promise;
   };
+export const getNotes = (id) =>{
+  let promise = new Promise((resolve, reject) => {
+    axios
+      .post(GraphQL_URL, {
+        query:`
+        query{
+          getNotesByClass(id_course:${id}){
+            id_note,
+            content
+          }
+        }
+        `,
+        variables: {}
+      },
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+      .then((res) => {
+        resolve(res.data.data.getNotesByClass);
+      })
+      .catch((error) => {
+        console.log(error);
+        reject(error);
+      });
+  });
+  return promise;
+};
