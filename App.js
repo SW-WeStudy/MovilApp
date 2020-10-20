@@ -56,7 +56,6 @@ export default function App() {
       <NavigationContainer>
         <Drawer.Navigator initialRouteName="Home">
           <Drawer.Screen name="Home" component={Root} title={"Home"} />
-          <Drawer.Screen name="Example" component={vistaejemplo} title={"ejemplo"} />
           {/* <Drawer.Screen  /> */}
           {/* ... put here other screens  */}
         </Drawer.Navigator>
