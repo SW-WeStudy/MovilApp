@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { View, SafeAreaView, Text, Image, TouchableNativeFeedback, TextInput, StyleSheet, Button } from 'react-native';
 
-const Login = ({ navigation }) => {
+const Login = ({ navigation,handle}) => {
   const [credentials, setCredentials] = useState({
     email: '', password: ''
   })
 
   const loginHandler = () => {
-    alert("login success");
+    alert("login success")
+    handle(credentials);
+
   }
 
   const goToSignup = () => {
