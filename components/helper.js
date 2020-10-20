@@ -24,8 +24,7 @@ export const getCourses = () => {
           }
         )
         .then((res) => {
-          // console.log(res.data.data.getAllCourses)
-          resolve(res);
+          resolve(res.data.data.getAllCourses);
         })
         .catch((error) => {
           console.log(error);

@@ -29,11 +29,10 @@ export default function Course() {
     // Update the document title using the browser API
     let getdata = async () => {
       let datas = await getCourses();
-      console.log(datas.data.data.getAllCourses);
-      setData(datas.data.data.getAllCourses);
+      setData(datas);
       // setData(datas)
       const co = [];
-      datas.data.data.getAllCourses.forEach((c, i) => {
+      datas.forEach((c, i) => {
         co.push(<CourseCard data={c} key={"course - " + i} />);
       });
       setCourses(co);
