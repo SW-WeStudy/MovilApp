@@ -20,7 +20,7 @@ export default function CourseCard(props) {
         <Text style={styles.baseText}>{props.data.name}</Text>
       </CardItem>
       <CardItem body>
-        <Text>adslkjasldkj</Text>
+        <Text>{props.data.id_course}</Text>
       </CardItem>
       <CardItem footer bordered>
         <Button

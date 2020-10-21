@@ -5,7 +5,6 @@ const Login = ({ navigation,handle}) => {
   const [credentials, setCredentials] = useState({
     email: '', password: ''
   })
-  console.log(credentials)
   const loginHandler = () => {
     // alert("login success")
     // handle(credentials);
@@ -15,6 +14,9 @@ const Login = ({ navigation,handle}) => {
       .then((response) => {
           const uid = response.user.uid
           console.log(response)
+          alert("login success")
+          handle(credentials);
+        
           // const usersRef = firebase.firestore().collection('users')
           // usersRef
           //     .doc(uid)
