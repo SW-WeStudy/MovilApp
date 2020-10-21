@@ -121,3 +121,34 @@ export const getStudyRooms = () =>{
   });
   return promise;
 };
+
+export const createNote = (content,id) =>{
+  let promise = new Promise((resolve, reject) => {
+    axios
+      .post(GraphQL_URL, {
+        query:`
+        mutation{
+          createNote(note:{content:"${content}",id_user:2,id_course:1}){
+            ok
+          }
+        }
+        `,
+        variables: {}
+      },
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+      .then((res) => {
+        console.log(res.data.data.createNote.ok)
+        resolve(res.data.data.createNote);
+      })
+      .catch((error) => {
+        console.log(error);
+        reject(error);
+      });
+  });
+  return promise;
+};

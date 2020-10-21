@@ -31,13 +31,11 @@ import Login from "./views/login";
 import Signup from "./views/signup";
 import Courses from "./views/courses/Courses";
 import Course from "./views/course/Course";
-
-
+import Note from './views/note/Note';
 export default function App() {
   let [login, setLogin] = useState(false);
   let [logincredentials, setLogincredentials] = useState({});
   const Stack = createStackNavigator();
-  console.log(login);
   const loginuser = (cred) => {
     setLogin(true);
     setLogincredentials(cred);
@@ -52,6 +50,11 @@ export default function App() {
           title={"Course"}
           initialParams={{ itemId: 42 }}
         />
+        <Stack.Screen
+          name="Note"
+          component={Note}
+          title={"Note"}
+        />
       </Stack.Navigator>
     );
   }
@@ -62,6 +65,8 @@ export default function App() {
     <HomeScreen credentials={logincredentials} {...props} />
   );
   const Drawer = createDrawerNavigator();
+  const navigationRef = React.useRef(null);
+
   if (login) {
     return (
       <Container>
@@ -73,8 +78,13 @@ export default function App() {
           <Button transparent>
             <Text>Search</Text>
           </Button>
+          <Right>
+            <Button style={{ color: "white" }}>
+                <Icon name="sticky-note" type="FontAwesome" onPress={() => navigationRef.current?.navigate('Note')} />
+              </Button>
+          </Right>
         </Header>
-        <NavigationContainer>
+        <NavigationContainer ref={navigationRef}>
           <Drawer.Navigator initialRouteName="Courses">
             <Drawer.Screen name="Courses" component={Root} title={"Courses"} />
           </Drawer.Navigator>
