@@ -8,7 +8,6 @@ export default function CourseStudy(props) {
   useEffect(() => {
     let getdata = async () => {
       let datas = await getStudyRooms(props.id);
-      console.log(datas)
       const co = [];
       datas.forEach((c, i) => {
         co.push(

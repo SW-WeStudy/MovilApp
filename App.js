@@ -33,7 +33,7 @@ import Courses from "./views/courses/Courses";
 import Course from "./views/course/Course";
 import Note from './views/note/Note';
 export default function App() {
-  let [login, setLogin] = useState(true);
+  let [login, setLogin] = useState(false);
   let [logincredentials, setLogincredentials] = useState({});
   const Stack = createStackNavigator();
   const loginuser = (cred) => {

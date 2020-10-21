@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
 import { View, SafeAreaView, Text, Image, TouchableNativeFeedback, TextInput, StyleSheet, Button } from 'react-native';
-
+import {createUser} from '../../components/helper'
 const Signup = ({ navigation }) => {
   const [newCredentials, setnewCredentials] = useState({
     name: '', email: '', password: ''
   })
 
 
-  const signupHandler = () => {
-    alert("Signup success");
+  const signupHandler = async() => {
+    let create = await createUser(newCredentials)
+    if(create !== null){
+      alert("Signup success");
+      goToLogin()
+    }else{
+      alert("the user already success");
+    }
+    
   }
 
   const goToLogin = () => {

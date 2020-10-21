@@ -152,3 +152,32 @@ export const createNote = (content,id) =>{
   });
   return promise;
 };
+export const createUser = (cred) =>{
+  let promise = new Promise((resolve, reject) => {
+    axios
+      .post(GraphQL_URL, {
+        query:`
+        mutation{
+          createUser(user:{email:"${cred.email}",displayName:"${cred.name}",password:"${cred.password}"}){
+            displayName
+          }
+        }
+        `,
+        variables: {}
+      },
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+      .then((res) => {
+        resolve(res.data.data.createUser);
+      })
+      .catch((error) => {
+        console.log(error);
+        reject(error);
+      });
+  });
+  return promise;
+};
