@@ -12,7 +12,7 @@ function HomeScreen({navigation}) {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Home Screen</Text>
       <Button
-        title="Check Forum"
+        title="Check Forum stable version"
         onPress={() => navigation.navigate('Forums')}
       />
       <Button
@@ -23,7 +23,19 @@ function HomeScreen({navigation}) {
   );
 }
 
+function Root() {
+  const Stack = createStackNavigator();
+  return(
+    <Stack.Navigator>
+      <Stack.Screen name="Forum" component={forum} />
+    </Stack.Navigator>
+  );
+}
+
+
 import forum from "./views/forum/forum";
+import post from "./views/posts/posts";
+import { createStackNavigator } from '@react-navigation/stack';
 
 function DetailsScreen() {
   return (
@@ -40,6 +52,7 @@ export default function App() {
         <Drawer.Screen name="Home" component={HomeScreen} title={"Home"}/>
         <Drawer.Screen name="Details" component={DetailsScreen} title={"Details"} />
         <Drawer.Screen name="Forums" component={forum} title={"Forums"} />
+        <Drawer.Screen name="Posts" component={post} title={"Posts"} />
         {/* ... put here other screens  */}
       </Drawer.Navigator>
     </NavigationContainer>
