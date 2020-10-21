@@ -1,14 +1,39 @@
 import React, { useState } from 'react';
 import { View, SafeAreaView, Text, Image, TouchableNativeFeedback, TextInput, StyleSheet, Button } from 'react-native';
-
+import { firebase } from '../../firebase'
 const Login = ({ navigation,handle}) => {
   const [credentials, setCredentials] = useState({
     email: '', password: ''
   })
-
+  console.log(credentials)
   const loginHandler = () => {
-    alert("login success")
-    handle(credentials);
+    // alert("login success")
+    // handle(credentials);
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(credentials.email, credentials.password)
+      .then((response) => {
+          const uid = response.user.uid
+          console.log(response)
+          // const usersRef = firebase.firestore().collection('users')
+          // usersRef
+          //     .doc(uid)
+          //     .get()
+          //     .then(firestoreDocument => {
+          //         if (!firestoreDocument.exists) {
+          //             alert("User does not exist anymore.")
+          //             return;
+          //         }
+          //         const user = firestoreDocument.data()
+          //         navigation.navigate('Home', {user})
+          //     })
+          //     .catch(error => {
+          //         alert(error)
+          //     });
+      })
+      .catch(error => {
+          alert(error)
+      })
   }
 
   const goToSignup = () => {
