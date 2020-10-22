@@ -16,22 +16,6 @@ const Login = ({ navigation,handle}) => {
           console.log(response)
           alert("login success")
           handle(credentials);
-        
-          // const usersRef = firebase.firestore().collection('users')
-          // usersRef
-          //     .doc(uid)
-          //     .get()
-          //     .then(firestoreDocument => {
-          //         if (!firestoreDocument.exists) {
-          //             alert("User does not exist anymore.")
-          //             return;
-          //         }
-          //         const user = firestoreDocument.data()
-          //         navigation.navigate('Home', {user})
-          //     })
-          //     .catch(error => {
-          //         alert(error)
-          //     });
       })
       .catch(error => {
           alert(error)

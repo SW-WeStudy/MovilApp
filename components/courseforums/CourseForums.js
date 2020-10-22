@@ -39,6 +39,9 @@ export default function CourseForums(props) {
           </ListItem>
         )}
       </List>
+      <Button full >
+        <Text style={{color:"white"}}>Show all forums</Text>
+      </Button>
     </View>
   );
 }
