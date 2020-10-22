@@ -12,6 +12,7 @@
     "@react-navigation/drawer": "^5.9.3",
     "@react-navigation/native": "^5.7.6",
     "@react-navigation/stack": "^5.9.3",
+    "axios": "^0.20.0",
     "expo": "~39.0.2",
     "expo-status-bar": "~1.0.2",
     "react": "16.13.1",
@@ -27,5 +28,18 @@
   "devDependencies": {
     "@babel/core": "~7.9.0"
   },
-  "private": true
+  "private": true,
+  "name": "movilapp",
+  "description": "Mobile app developed in react native using dependencies:\r * expo\r * react-native\r * react-navigation\r * react-bootstrap",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SW-WeStudy/MovilApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SW-WeStudy/MovilApp/issues"
+  },
+  "homepage": "https://github.com/SW-WeStudy/MovilApp#readme"
 }

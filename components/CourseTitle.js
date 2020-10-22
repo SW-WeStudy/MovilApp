@@ -5,10 +5,9 @@ function CourseTitle (props) {
     return (
         <View style={styles.header}>
             <Text style={styles.text}>{props.title}</Text>
-            <Text style={styles.date}>{props.date}</Text>
         </View>
     )
-};
+}
 
 CourseTitle.defaultProps = {
     title: 'Software Architecture',
@@ -17,10 +16,10 @@ CourseTitle.defaultProps = {
 
 const styles = StyleSheet.create({
     header: {
-        height: 100,
-        padding: 15,
+        height: 50,
+        padding: 5,
         backgroundColor: '#fff',
-        borderRadius: 20
+        borderRadius: 5
     },
     text: {
         color: '#5E90F2',

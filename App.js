@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { StyleSheet, Text, View, Button} from 'react-native';
 
-import CoursesScreen from './views/CoursesScreen';
+import ResourcesScreen from './views/ResourcesScreen';
 // ejemplo de como crear navegacion y adicionar en el Navigation Container
 // porfavor añadan de esta manera las pantallas (Screens) importandolas y luego colocandolas en el Stack
 // toda la info la pueden ver en el react navigation
@@ -31,10 +31,10 @@ export default function App() {
   const Drawer = createDrawerNavigator()
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Courses">
+      <Drawer.Navigator initialRouteName="Resources">
         <Drawer.Screen name="Home" component={HomeScreen} title={"Home"}/>
         <Drawer.Screen name="Details" component={DetailsScreen} title={"Details"}/>
-        <Drawer.Screen name="Courses" component={CoursesScreen} title={"Courses"}/>
+        <Drawer.Screen name="Resources" component={ResourcesScreen} title={"Resources"}/>
         {/* ... put here other screens  */}
       </Drawer.Navigator>
     </NavigationContainer>

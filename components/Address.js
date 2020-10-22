@@ -10,7 +10,7 @@ function Address ({title}) {
 };
 
 Address.defaultProps = {
-    title: 'My Courses/ Software Architecture/ 8-oc',
+    title: 'My Resources/ Software Architecture/ 8-oc',
 };
 
 const styles = StyleSheet.create({
