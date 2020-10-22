@@ -32,6 +32,13 @@ import Signup from "./views/signup";
 import Courses from "./views/courses/Courses";
 import Course from "./views/course/Course";
 import Note from './views/note/Note';
+import Forum  from "./views/forum/forum";
+import Comment  from "./views/comments/comments";
+import Answer  from "./views/answers/answers";
+import Post  from "./views/posts/posts";
+
+
+
 export default function App() {
   let [login, setLogin] = useState(true);
   let [logincredentials, setLogincredentials] = useState({});
@@ -55,6 +62,27 @@ export default function App() {
           component={Note}
           title={"Note"}
         />
+        <Stack.Screen
+          name="Forums"
+          component={Forum}
+          title={"Forums"}
+        />
+        <Stack.Screen
+          name="Answers"
+          component={Answer}
+          title={"Answers"}
+        />
+        <Stack.Screen
+          name="Posts"
+          component={Post}
+          title={"Posts"}
+        />
+         <Stack.Screen
+          name="Comments"
+          component={Comment}
+          title={"Comments"}
+        />
+
       </Stack.Navigator>
     );
   }

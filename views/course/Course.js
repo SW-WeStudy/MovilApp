@@ -40,7 +40,7 @@ export default function Course({ route, navigation }) {
   }
   const dataArray = [
     { title: "Notes", content: <CourseNotes id={route.params.course_id} /> },
-    { title: "Forums", content: <CurseForums id={route.params.course_id} /> },
+    { title: "Forums", content: <CurseForums id={route.params.course_id} navigation={navigation} /> },
     {
       title: "Study rooms",
       content: <CourseStudy id={route.params.course_id} />,

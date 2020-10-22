@@ -6,7 +6,7 @@ const GraphQL_URL = "http://3.138.86.155/graphql"
 //URLS
 const URL_FORUMS = `${FORUM_IP}/forums`;;
 
-export const getForumsByCourse = () => {
+export const getForumsByCourse = (id) => {
   let promise = new Promise((resolve, reject) => {
     axios
       .post(
@@ -14,7 +14,7 @@ export const getForumsByCourse = () => {
         {
           query: `
           query{
-            getForumsByCourse(course_id: "0"){
+            getForumsByCourse(course_id: "${id}"){
               _id
               name
               userCreator

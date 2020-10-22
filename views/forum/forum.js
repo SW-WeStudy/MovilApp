@@ -28,7 +28,7 @@ const Forum = (props) => {
   const [forumElements, setForumElements] = useState([])
   useEffect(()=> {
     let getDataForumQ = async () => {
-      let dataQ = await getForumsByCourse();
+      let dataQ = await getForumsByCourse(props.route.params.id_course);
       setData(dataQ);
       const co = [];
       dataQ.forEach((c,i) => {
@@ -49,8 +49,7 @@ const Forum = (props) => {
 
   console.log(forumElements);
   return (
-    <View style={styles.container}>
-      <SafeAreaView>
+    <View style={styles.container} >
         <Text style={styles.title}>Forum Screen</Text>
         <Text style={styles.subtitle}>Forum</Text>
         <FlatList
@@ -68,8 +67,7 @@ const Forum = (props) => {
           keyExtractor={(item) => "forum" + item._id}
           ListEmptyComponent={EmptyListMessage}
         />
-      </SafeAreaView>
-    </View>
+      </View>
   );
 };
 
