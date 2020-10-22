@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     margin: 80,
     justifyContent: "center",
-  },
+  }
 });
 
 export default Forum;
