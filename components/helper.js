@@ -41,10 +41,10 @@ export const getForumsByCourse = () => {
   return promise;
 };
 
-export const getPosts = async (id) => {
+export const getPosts = async (_id) => {
   let promise = new Promise((resolve, reject) => {
     axios
-      .get(`${URL_FORUMS}/${id}`)
+      .get(`${URL_FORUMS}/${_id}`)
       .then((res) => {
         console.log(res.data)
         resolve(res);

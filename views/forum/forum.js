@@ -2,7 +2,6 @@ import { StatusBar } from "expo-status-bar";
 import React, { useEffect, useState } from "react";
 import { Link, NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import Icon from "react-native-vector-icons/FontAwesome";
 import {
   StyleSheet,
   Text,
@@ -21,9 +20,6 @@ import {
 } from "react-native-gesture-handler";
 import { SafeAreaInsetsContext } from "react-native-safe-area-context";
 import { render } from "react-dom";
-import { Card } from "react-bootstrap";
-import { useCardAnimation } from "@react-navigation/stack";
-// import { NavigationContainer } from '@react-navigation/native';
 import { getForumsByCourse } from '../../components/helper'
 import ItemForum from '../../components/ItemForum'
 const Forum = (props) => {
@@ -42,118 +38,6 @@ const Forum = (props) => {
     };
     getDataForumQ();
   }, [])
-  /*
-  const [forumElements, setForumElements] = useState([
-    {
-      idForum: "idforum0",
-      userCreator: "Ozuna Jose",
-      name: "Nuevo recurso / forum 0",
-      userEmail: "user4@gmail.com",
-      posts: [
-        {
-          idPost: "idpost00",
-          title: "post 00",
-          userCreator: "Ozuna Jose",
-          comments: [
-            {
-              idComment: "idcomment000",
-              content: "Comment 000",
-              userCreator: "Ozuna Jose",
-              answers: [
-                {
-                  userCreator: "Ozuna Jose",
-                  content: "answer 0000",
-                },
-                {
-                  userCreator: "Ozuna Jose 2",
-                  content: "answer 0001",
-                },
-              ],
-            },
-            {
-              idComment: "idcomment001",
-              content: "Comment 001",
-              userCreator: "Ozuna Jose",
-              answers: [
-                {
-                  userCreator: "Ozuna Jose",
-                  content: "answer 0010",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          idPost: "idpost01",
-          title: "post 01",
-          userCreator: "Luis Otalora",
-          comments: [
-            {
-              idComment: "idcomment010",
-              content: "Comment 010",
-              userCreator: "Luis Otalora",
-              answers: [
-                {
-                  userCreator: "Luis Otalora",
-                  content: "answer 0100",
-                },
-                {
-                  userCreator: "Ozuna Jose 2",
-                  content: "answer 0101",
-                },
-              ],
-            },
-            {
-              idComment: "idcomment011",
-              content: "Comment 011",
-              userCreator: "Luis Otalora",
-              answers: [{}],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      idForum: "idforum1",
-      userCreator: "Luis Otalora",
-      name: "Link de la clase grabada / forum 0",
-      userEmail: "user6@gmail.com",
-      posts: [
-        {
-          idPost: "idpost10",
-          title: "titulo 1",
-          userCreator: "Dante Maleante",
-          comments: [
-            {
-              idComment: "idcomment100",
-              content: "Comment 100",
-              userCreator: "Luis Otalora",
-              answers: [
-                {
-                  userCreator: "Luis Otalora 2",
-                  content: "answer 1000",
-                },
-                {
-                  userCreator: "Luis Otalora 2",
-                  content: "answer 1001",
-                },
-              ],
-              idComment: "idcomment111",
-              content: "Comment 111",
-              userCreator: "Luis Otalora",
-              answers: [{}],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      idForum: "idforum2",
-      userCreator: "Dante Maleante",
-      name: "Agradecimiento",
-      userEmail: "user8@gmail.com",
-    },
-  ]);*/
   
   const EmptyListMessage = () => {
     return (
@@ -181,7 +65,7 @@ const Forum = (props) => {
               props={props}
             />
           )}
-          keyExtractor={(item) => item._id}
+          keyExtractor={(item) => "forum" + item._id}
           ListEmptyComponent={EmptyListMessage}
         />
       </SafeAreaView>

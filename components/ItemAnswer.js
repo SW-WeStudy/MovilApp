@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -23,39 +23,17 @@ import { SafeAreaInsetsContext } from "react-native-safe-area-context";
 import { render } from "react-dom";
 import { Card } from "react-bootstrap";
 import { useCardAnimation } from "@react-navigation/stack";
-import { getPosts } from "./helper";
 
-export default function ItemForum({
-  _id,
-  name,
-  userCreator,
-  userEmail,
-  props,
-}) {
-  const [data, setData] = useState([]);
-  const [forumsQ, setForumsQ] = useState();
-  /*useEffect(() => {
-    let getPostsQ = async () => {
-      let dataQ = await getPosts(_id);
-      setForumsQ(dataQ)
-    };
-    getPostsQ();
-  }, []);*/
-
+export default function ItemAnswer ({navigation, content, userCreator}) {
   return (
-    <View style={styles.item}>
-      <SafeAreaView>
-        <Text style={styles.text}> {name} </Text>
-        <Text style={styles.userData}> {userCreator} </Text>
-        <Text style={styles.userData}> {userEmail} </Text>
-        <Button
-          title="Go to posts"
-          onPress={() => props.navigation.navigate("Posts", { _id })}
-        />
-      </SafeAreaView>
-    </View>
+  <View style={styles.item}>
+    <SafeAreaView>
+      <Text style={styles.text}> {content} </Text>
+      <Text style={styles.userData}> {userCreator} </Text>
+    </SafeAreaView>
+  </View>
   );
-}
+} 
 
 const styles = StyleSheet.create({
   container: {

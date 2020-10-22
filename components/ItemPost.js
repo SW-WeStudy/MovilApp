@@ -24,17 +24,21 @@ import { render } from "react-dom";
 import { Card } from "react-bootstrap";
 import { useCardAnimation } from "@react-navigation/stack";
 
-export default function ItemPost ({ title, userCreator, props}) {
+export default function ItemPost ({navigation, title, userCreator, comments}) {
+  console.log(navigation);
   return (
   <View style={styles.item}>
     <SafeAreaView>
       <Text style={styles.text}> {title} </Text>
       <Text style={styles.userData}> {userCreator} </Text>
+      <Button
+          title="Go to comments"
+          onPress={() => navigation.navigate("Comments", {comments} )}
+        />
     </SafeAreaView>
   </View>
   );
 } 
-
 
 const styles = StyleSheet.create({
   container: {

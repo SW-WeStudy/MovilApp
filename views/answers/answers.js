@@ -6,31 +6,12 @@ import { StyleSheet, Text, View, Button, FlatList } from "react-native";
 import ItemPost from "../../components/ItemPost";
 import { getPosts } from "../../components/helper";
 import { Value } from "react-native-reanimated";
-const Post = ({ route, navigation }) => {
+import ItemAnswer from "../../components/ItemAnswer";
+const Answer = ({ route, navigation }) => {
 
-  const [forumElement, setForumElement] = useState([]);
+  const [answerElement, setAnswerElement] = useState([]);
 
-  const [postElement, setPostElement] = useState([]);
-
-  const [data, setData] = useState([]);
-
-  console.log(route.params._id);
-  useEffect(() => {
-    let getForumsByID = async () => {
-      const data1 = JSON.parse(JSON.stringify(route.params._id));
-      const _id = data1.toString();
-      console.log(_id);
-      let dataQ = await getPosts(_id);
-      setData(dataQ.data);
-      const co = [];
-      dataQ.data.forEach((e,i) => {
-        co.push(e);
-      });
-      setForumElement(co);
-      setPostElement(co[0].posts);
-    };
-    getForumsByID();
-  }, []);
+  console.log(route.params.answer);
 
   const EmptyListMessage = () => {
     return (
@@ -40,21 +21,18 @@ const Post = ({ route, navigation }) => {
     );
   };
   
-  console.log(forumElement);
-  console.log(postElement);
-  /*
   useEffect(() => {
-    setPostElement(route.params.posts);
-  }, [])*/
+    setAnswerElement(route.params.answer);
+  }, [])
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Posts</Text>
+      <Text style={styles.title}>Answers</Text>
       <FlatList
-        data={postElement}
-        keyExtractor={(item) => "post" + item._id}
+        data={answerElement}
+        keyExtractor={(item) => "answer" + item._id}
         renderItem={({ item }) => (
-          <ItemPost title={item.title} userCreator={item.userCreator} comments={item.comments} navigation={navigation} />
+          <ItemAnswer content={item.content} userCreator={item.userCreator} navigation={navigation} />
         )}
         ListEmptyComponent={EmptyListMessage}
       />
@@ -91,4 +69,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Post;
+export default Answer;

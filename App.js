@@ -35,6 +35,8 @@ function Root() {
 
 import forum from "./views/forum/forum";
 import post from "./views/posts/posts";
+import comment from './views/comments/comments';
+import answer from './views/answers/answers';
 import { createStackNavigator } from '@react-navigation/stack';
 
 function DetailsScreen() {
@@ -53,6 +55,8 @@ export default function App() {
         <Drawer.Screen name="Details" component={DetailsScreen} title={"Details"} />
         <Drawer.Screen name="Forums" component={forum} title={"Forums"} />
         <Drawer.Screen name="Posts" component={post} title={"Posts"} />
+        <Drawer.Screen name="Comments" component={comment} title={"Comments"} />
+        <Drawer.Screen name="Answers" component={answer} title={"Answers"} />
         {/* ... put here other screens  */}
       </Drawer.Navigator>
     </NavigationContainer>
