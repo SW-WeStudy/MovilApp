@@ -29,6 +29,7 @@ export default function CourseCard(props) {
           onPress={() =>
             props.navigation.navigate("Course", {
               course_id: props.data.id_course,
+              name:props.data.name
             })
           }
         >

@@ -49,7 +49,14 @@ export default function Course({ route, navigation }) {
   return (
     <View>
       <Accordion dataArray={dataArray} renderHeader={_renderHeader} />
-      <Button full>
+      <Button full onPress={()=>{
+          navigation.navigate("Resources",{
+            id_course:route.params.course_id,
+            uid:"NiIDea",
+            course_name:route.params.name,
+            address_name:"courses/"+route.params.name
+          })
+        }}>
         <Text style={{ color: "white" }}>Show resources</Text>
       </Button>
     </View>

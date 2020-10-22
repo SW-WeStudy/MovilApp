@@ -37,7 +37,7 @@ import Forum  from "./views/forum/forum";
 import Comment  from "./views/comments/comments";
 import Answer  from "./views/answers/answers";
 import Post  from "./views/posts/posts";
-
+import ResourcesScreen from "./views/resources/ResourcesScreen";
 
 
 export default function App() {
@@ -82,6 +82,11 @@ export default function App() {
           name="Comments"
           component={Comment}
           title={"Comments"}
+        />
+        <Stack.Screen
+          name="Resources"
+          component={ResourcesScreen}
+          title={"Resources"}
         />
 
       </Stack.Navigator>

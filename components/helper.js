@@ -124,14 +124,14 @@ export const getResources = (idResource) => {
       return promise;
     };
 
-    export const createResource = (resourceInput) => {
+    export const createResource = (query) => {
       let promise = new Promise((resolve, reject) => {
           axios
             .post(GraphQL_URL, {
               query:
               `
               mutation{
-                createResource(resource:{idUser:"${resourceInput.idUser}",idClase:${resourceInput.idClase},content:"${resourceInput.content}"}){
+                createResource(resource:${query}){
                   message
                 }
               }
@@ -282,7 +282,7 @@ export const createNote = (content,id) =>{
       .post(GraphQL_URL, {
         query:`
         mutation{
-          createNote(note:{content:"${content}",id_user:2,id_course:1}){
+          createNote(note:{content:"${content}",id_user:2,id_course:${id}}){
             ok
           }
         }
