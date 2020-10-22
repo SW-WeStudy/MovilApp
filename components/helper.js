@@ -1,4 +1,5 @@
 
+
 import axios from "axios";
 // IP's
 const FORUM_IP = "http://52.200.134.90:3000"
@@ -88,6 +89,103 @@ export const getCourses = () => {
     });
     return promise;
   };
+
+export const getResources = (idResource) => {
+    let promise = new Promise((resolve, reject) => {
+        axios
+          .post(GraphQL_URL, {
+            query:`
+            query{
+                allResourcesOfClass(id:${idResource}){
+                  id,
+                  idClase,
+                  idUser,
+                  content
+                }
+              }
+            `,
+            variables: {}
+          },
+            {
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            }
+          )
+          .then((res) => {
+            console.log(res);
+            resolve(res.data.data.allResourcesOfClass);
+          })
+          .catch((error) => {
+            console.log(error);
+            reject(error);
+          });
+      });
+      return promise;
+    };
+
+    export const createResource = (resourceInput) => {
+      let promise = new Promise((resolve, reject) => {
+          axios
+            .post(GraphQL_URL, {
+              query:
+              `
+              mutation{
+                createResource(resource:{idUser:"${resourceInput.idUser}",idClase:${resourceInput.idClase},content:"${resourceInput.content}"}){
+                  message
+                }
+              }
+              `,
+              variables: {}
+            },
+              {
+                headers: {
+                  'Content-Type': 'application/json'
+                }
+              }
+            )
+            .then((res) => {
+              console.log(res);
+              resolve(res.data.data.createResource);
+            })
+            .catch((error) => {
+              console.log(error);
+              reject(error);
+            });
+        });
+        return promise;
+      };
+      export const deleteResource = (idResource) => {
+        let promise = new Promise((resolve, reject) => {
+            axios
+              .post(GraphQL_URL, {
+                query:
+                `
+                mutation{
+                  deleteResource(id:${idResource}){
+                    message
+                  }
+                }
+                `,
+                variables: {}
+              },
+                {
+                  headers: {
+                    'Content-Type': 'application/json'
+                  }
+                }
+              )
+              .then((res) => {
+                console.log(res);
+                resolve(res.data.data.deleteResource);
+              })
+              .catch((error) => {
+                console.log(error);
+                reject(error);
+              });
+          });
+          return promise;
+        };
 export const getNotes = (id) =>{
   let promise = new Promise((resolve, reject) => {
     axios
@@ -238,3 +336,4 @@ export const createUser = (cred) =>{
   });
   return promise;
 };
+

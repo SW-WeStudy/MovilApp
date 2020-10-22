@@ -35,5 +35,18 @@
     "@babel/core": "~7.9.0",
     "graphql": "^15.3.0"
   },
-  "private": true
+  "private": true,
+  "name": "movilapp",
+  "description": "Mobile app developed in react native using dependencies:\r * expo\r * react-native\r * react-navigation\r * react-bootstrap",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SW-WeStudy/MovilApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SW-WeStudy/MovilApp/issues"
+  },
+  "homepage": "https://github.com/SW-WeStudy/MovilApp#readme"
 }
