@@ -22,6 +22,18 @@ import { getCourses } from "../../components/helper";
 // import data from '../../data/data.json'
 
 export default function Courses({route,navigation}) {
+  let _retrieveData = async () => {
+    try {
+      const value = await AsyncStorage.getItem('token');
+      if (value !== null) {
+        // We have data!!
+        console.log(value);
+      }
+    } catch (error) {
+      // Error retrieving data
+    }
+  };
+  _retrieveData()
   const [data, setData] = useState([]);
   const [courses, setCourses] = useState([]);
   // Similar to componentDidMount and componentDidUpdate:

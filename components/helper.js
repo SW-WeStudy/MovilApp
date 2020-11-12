@@ -3,7 +3,7 @@
 import axios from "axios";
 // IP's
 const FORUM_IP = "http://52.200.134.90:3000"
-const GraphQL_URL = "http://3.138.86.155/graphql"
+const GraphQL_URL = "http://3.138.86.155:3000/graphql"
 //URLS
 const URL_FORUMS = `${FORUM_IP}/forums`;;
 
@@ -83,6 +83,7 @@ export const getCourses = () => {
           resolve(res.data.data.getAllCourses);
         })
         .catch((error) => {
+          console.log("error courses")
           console.log(error);
           reject(error);
         });
@@ -328,6 +329,35 @@ export const createUser = (cred) =>{
       )
       .then((res) => {
         resolve(res.data.data.createUser);
+      })
+      .catch((error) => {
+        console.log(error);
+        reject(error);
+      });
+  });
+  return promise;
+};
+export const deleteNote = (id) =>{
+  let promise = new Promise((resolve, reject) => {
+    axios
+      .post(GraphQL_URL, {
+        query:`
+        mutation{
+          deleteNote(id_note:${id}){
+            ok
+          }
+        }
+        `,
+        variables: {}
+      },
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+      .then((res) => {
+        resolve(res.data.data.deleteNote.ok);
       })
       .catch((error) => {
         console.log(error);

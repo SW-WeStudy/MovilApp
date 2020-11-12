@@ -1,6 +1,17 @@
 import React, { useState } from 'react';
 import { View, SafeAreaView, Text, Image, TouchableNativeFeedback, TextInput, StyleSheet, Button } from 'react-native';
 import { firebase } from '../../firebase'
+import { AsyncStorage } from 'react-native';
+let _storeData = async (t) => {
+  try {
+    await AsyncStorage.setItem(
+      'token',
+      t
+    );
+  } catch (error) {
+    // Error saving data
+  }
+};
 const Login = ({ navigation,handle}) => {
   const [credentials, setCredentials] = useState({
     email: '', password: ''
@@ -13,7 +24,7 @@ const Login = ({ navigation,handle}) => {
       .signInWithEmailAndPassword(credentials.email, credentials.password)
       .then((response) => {
           const uid = response.user.uid
-          console.log(response)
+          _storeData(response.user.ya)
           alert("login success")
           handle(credentials);
       })

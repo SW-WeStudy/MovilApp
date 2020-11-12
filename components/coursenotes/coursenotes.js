@@ -1,7 +1,7 @@
-import { Icon, List, ListItem, Left, Body, Button } from "native-base";
+import { Icon, List, ListItem, Left, Body, Button ,Right} from "native-base";
 import React from "react";
 import { View, Text } from "react-native";
-import { getNotes } from "../helper";
+import { getNotes,deleteNote} from "../helper";
 import { useEffect, useState } from "react";
 
 export default function CourseNotes(props) {
@@ -11,6 +11,7 @@ export default function CourseNotes(props) {
       let datas = await getNotes(props.id);
       const co = [];
       datas.forEach((c, i) => {
+        console.log(c)
         co.push(
           <ListItem key={"note-" + i} icon>
             <Left>
@@ -21,6 +22,16 @@ export default function CourseNotes(props) {
             <Body>
               <Text>{c.content}</Text>
             </Body>
+            {/* <Right>
+              <Button onPress={() =>{
+                (async () =>{
+                  let d =await deleteNote(c.id_note)
+                  console.log(d)
+                })()
+              }}>
+                <Icon name="trash-o" type="FontAwesome" />
+              </Button>
+            </Right> */}
           </ListItem>
         );
       });

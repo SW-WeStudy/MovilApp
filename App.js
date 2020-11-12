@@ -38,10 +38,9 @@ import Comment  from "./views/comments/comments";
 import Answer  from "./views/answers/answers";
 import Post  from "./views/posts/posts";
 import ResourcesScreen from "./views/resources/ResourcesScreen";
-
-
+import { AsyncStorage } from 'react-native';
 export default function App() {
-  let [login, setLogin] = useState(true);
+  let [login, setLogin] = useState(false);
   let [logincredentials, setLogincredentials] = useState({});
   const Stack = createStackNavigator();
   const loginuser = (cred) => {
@@ -121,6 +120,7 @@ export default function App() {
         <NavigationContainer ref={navigationRef}>
           <Drawer.Navigator initialRouteName="Courses">
             <Drawer.Screen name="Courses" component={Root} title={"Courses"} />
+            <Drawer.Screen name="Login" component={loginhandlercomponenet} title={"Courses"} onPress={()=>{setLogin(false)}}/>
           </Drawer.Navigator>
         </NavigationContainer>
       </Container>
