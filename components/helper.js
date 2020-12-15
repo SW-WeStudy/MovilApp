@@ -3,7 +3,8 @@
 import axios from "axios";
 // IP's
 const FORUM_IP = "http://52.200.134.90:3000"
-const GraphQL_URL = "http://3.138.86.155:3000/graphql"
+// const GraphQL_URL = "http://3.138.86.155:3000/graphql"
+const GraphQL_URL = "http://westudy-deploy-1782727920.us-east-2.elb.amazonaws.com:5000/graphql"
 //URLS
 const URL_FORUMS = `${FORUM_IP}/forums`;;
 
